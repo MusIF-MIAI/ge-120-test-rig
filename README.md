@@ -219,5 +219,5 @@ a bidirectional buffer on the 30 pins, with some sort of level shifters.
 
 ### Fault detected?
 
-- So far we have changed one (1) faulty resistor.
+- So far we have replaced one (1) faulty resistor.
 
