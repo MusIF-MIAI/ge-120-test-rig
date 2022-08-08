@@ -62,6 +62,17 @@ too far from what we use today, as opposed to vacuum-tube architectures from the
 same era.
 
 
+## The Central Processing Unit Wing
+
+![The front of the CPU rack](img/cpu_wing_front.jpg) ![The back of the CPU rack](img/cpu_wing_back.jpg)
+
+The CPU of the computer, like the rest of the modules, is implemented in a rack
+referred to as "wing", using plug in circuit board cards in a wire-wrapped
+backplane.
+
+![One of the many CPU logic boards](img/piastrina.jpg)
+
+
 ## Testing CPU circuits
 
 One interesting feature of the GE-120 is the possibility to run diagnostics on the
