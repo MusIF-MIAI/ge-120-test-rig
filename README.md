@@ -29,8 +29,8 @@ Information Systems, which also included the Italian R&D department working on t
 The "Serie 100" was rebranded intto "Honeywell Series 100", and the four models
 in the product line were sold with the new names of "G-115", "G-130", "G-105" and "G-120".
 
-According to [this datasheet from 1974](http://bitsavers.informatik.uni-stuttgart.de/pdf/honeywell/datapro/70c-480-16_7205_honeywell_series_100.pdf),  the flagship product 
-of the series was the G-130, added to the production line
+According to [this datasheet from 1974](http://www.bitsavers.org/pdf/honeywell/datapro/70C-480-16_7205_Honeywell_Series_100.pdf),
+the flagship product of the series was the G-130, added to the production line
 in April 1968. It offered approx. 3x the speed of execution of the G-115 and an
 extended instruction set.
 
