@@ -196,7 +196,8 @@ working together across a short amount of time, so the purpose was mostly 'getti
 things to work fast' rather than writing readable code. We promise it will improve.
 
 All the software is installed on one of the two raspberry pi. The python script 
-`ge-test.py` accept as only argument one of the files with the `.conf` extension.
+`ge-test.py`, found in the `src` directory, accept as only argument one of the files
+with the `.conf` extension, found in the `conf` directory.
 
 `.conf` files are the equivalent of the metal plates in the electromechanic test,
 which means that running the `ge-test.py` script once will perform all the tests
