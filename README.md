@@ -48,8 +48,8 @@ and since that day he had been keeping it until he kindly donated it to our Muse
 With several components the GE-120, including console, processing, memory, tape,
 disk and printer units, weighted over 2000Kg, and required a huge amount of effort
 and resources to move it from Switzerland to his new home at MIAI, in the south 
-of Italy. This operation could not have been possible without the [donations](link?) 
-collected through a successful social funding campaign.
+of Italy. This operation could not have been possible without the donations
+collected through a successful [social funding campaign](https://www.produzionidalbasso.com/project/recupero-computer-ge-120-1969/).
 
 ## Our Goal
 
