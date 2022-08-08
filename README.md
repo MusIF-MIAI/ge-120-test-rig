@@ -81,7 +81,7 @@ simple and does not require to power on all the "wings". The tool is installed i
 the cabinet containing the main console, and offer a simple user interface panel,
 with buttons, switches, and pre-LED visual indicators made with light bulbs.
 
-![img console panel](img/test_console.jpg)
+![The test console panel](img/test_console.jpg)
 
 The single circuit board under test must be connected to the port on the right hand
 side of this panel. Each board has an identification number that can be used to
@@ -94,9 +94,9 @@ plastic boxes. Each circuit board can be tested with the tool using the correspo
 punched metal plate, containing a full logic-test coverage for all the logic components
 on the board itself.
 
-![img test plate](img/single_test_plate.jpg)
+![A test plate](img/single_test_plate.jpg)
 
-![img test plate 2](img/plate_side.jpg)
+![The back of a test plate](img/plate_side.jpg)
 
 
 ### The original electromechanic test procedure
@@ -185,7 +185,7 @@ and allow for debugging and live diagnostics on the signals. We connected two of
 two Raspberry-pi 3, to provide a 5V power source for the bus, and a total of 30 GPIO signals
 (15 for each bus) to drive the logic of the circuit under test on the other side of the connector.
 
-![img test raspberry](img/test_raspi.jpg)
+![The "modern" testbed using two Rasberry PIs](img/test_raspi.jpg)
 
 
 The two Raspberry pi are connected to the same network, with hostnames "video3"
@@ -211,7 +211,7 @@ about the status of the test at the end.
 
 ### Drawbacks, work-in-progress, known issues
 
-![img test failed](img/test_failed.jpg)
+![Screen shot of a failed test](img/test_failed.jpg)
 
 - **Data entry** - We know, trust us. Copying the metal plates manually takes a
 lot of time and gets boring after a while. We are already working on a OCR tool
