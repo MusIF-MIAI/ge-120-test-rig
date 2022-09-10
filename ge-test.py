@@ -57,7 +57,7 @@ PINS = [
 def setup_io(line):
     global FAILURE
     global FAIL_LINE
-    print("io", line)
+    print("[ line 01 ] io", line)
     for i, bit_s in enumerate(line):
         if bit_s == '0':
             bit = 0
@@ -87,10 +87,10 @@ def setup_io(line):
 
 
 
-def run_test(line):
+def run_test(line, cnt):
     global FAILURE
     global FAIL_LINE
-    print("test", line)
+    print("[ line " + str(cnt).rjust(2, '0') + " ] test", line)
     for i, val in enumerate(line):
         pin, direction, remote = pincfg[i]
         if not direction:
@@ -125,7 +125,7 @@ def run_test(line):
             if (os.system(command)) != 0:
                 print(" FAILED!")
                 FAILURE=True
-                FAIL_LINE.append(i)
+                FAIL_LINE.append(cnt)
             else:
                 print(" OK")
             
@@ -133,15 +133,18 @@ def run_test(line):
 
 def test(conf_text):
     io_defs = None
-
+    cnt = 2
     for line in conf_text.splitlines():
         try:
             if line[0] in ('0', '1'):
                 if io_defs is None:
                     io_defs = line
+                    print("")
                     setup_io(line)
                 else:
-                    run_test(line)
+                    print("")
+                    run_test(line, cnt)
+                    cnt += 1
         except Exception as e:
             pass
         
@@ -162,7 +165,8 @@ if __name__ == '__main__':
     print()
     if (FAILURE):
         os.system("/usr/games/cowsay -e xx Test FAILED")
-        print("line(s) with failure: " + str(FAIL_LINE))
+        print("")
+        print("line(s) with failure: " + str(set(FAIL_LINE)))
     else:
         os.system("figlet Test SUCCESSFUL")
 
