@@ -389,8 +389,8 @@ struct ge_testplates plate_0610046B = {
     },
 };
 
-struct ge_testplates plate_0610043E = {
-    "0610043E", "LOSE 2E", 4, {
+struct ge_testplates plate_0610047F = {
+    "0610047F", "Unknown", 4, {
         0x19216451, /* 011001001000010110010001010001 */
         0x26da9bae, /* 100110110110101001101110101110 */
         0x3dbdf6fb, /* 111101101111011111011011111011 */
@@ -668,7 +668,7 @@ struct ge_testplates * tests[] = {
     &plate_0610044T,
     &plate_0610045X,
     &plate_0610046B,
-    &plate_0610043E,
+    &plate_0610047F,
     &plate_0610048U,
     &plate_0610050W,
     &plate_0610052B,
