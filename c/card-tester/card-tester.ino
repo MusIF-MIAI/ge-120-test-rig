@@ -827,6 +827,26 @@ struct ge_testplates plate_0610069S = {
     },
 };
 
+struct ge_testplates plate_0610071Z = {
+    "0610071Z", "TISE 2A", 15, {
+        0x10926004, /* 010000100100100110000000000100 */
+        0x210d8444, /* 100001000011011000010001000100 */
+        0x319d8be6, /* 110001100111011000101111100110 */
+        0x109d9fea, /* 010000100111011001111111101010 */
+        0x12059ffe, /* 010010000001011001111111111110 */
+        0x230d9466, /* 100011000011011001010001100110 */
+        0x3fdffefb, /* 111111110111111111111011111011 */
+        0x00089422, /* 000000000010001001010000100010 */
+        0x044c857b, /* 000100010011001000010101111011 */
+        0x343f257b, /* 110100001111110010010101111011 */
+        0x199d0174, /* 011001100111010000000101110100 */
+        0x10209532, /* 010000001000001001010100110010 */
+        0x1020951a, /* 010000001000001001010100011010 */
+        0x1020901c, /* 010000001000001001000000011100 */
+        0x1160c47a, /* 010001011000001100010001111010 */
+    },
+};
+
 struct ge_testplates plate_0610072Y = {
     "0610072Y", "TRIN 2A", 15, {
         0x1fff8000, /* 011111111111111000000000000000 */
@@ -991,13 +1011,13 @@ struct ge_testplates * tests[] = {
     &plate_0610067H,
     &plate_0610068W,
     &plate_0610069S,
+    &plate_0610071Z,
     &plate_0610072Y,
     &plate_0610073H,
     &plate_0610074W,
     &plate_0610075S,
     &plate_0610076E,
 };
-
 
 static const int ARDUINO_PIN_START = 22;
 static const int PIN_COUNT = 30;
@@ -1028,8 +1048,15 @@ void print_current_test(struct tester *t) {
 
   snprintf(diocane, sizeof(diocane), "%s %s", plate->code, plate->name);
   Serial.println(diocane);
-  snprintf(diocane, sizeof(diocane), "Test: %d of %d", t->current_test, plate->count - 1);
-  Serial.println(diocane);
+
+  if (t->current_test == 0) {
+    snprintf(diocane, sizeof(diocane), "Config (%d tests)", plate->count - 1);
+    Serial.println(diocane);  
+  } else {
+    snprintf(diocane, sizeof(diocane), "Test: %d of %d", t->current_test, plate->count - 1);
+    Serial.println(diocane);
+  }
+
   Serial.print("@");
 }
 
