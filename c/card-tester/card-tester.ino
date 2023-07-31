@@ -3,8 +3,6 @@
 static const int ARDUINO_PIN_START = 22;
 static const int PIN_COUNT = 30;
 
-char diocane[100];
-
 struct tester {
   int current_plate;
   int current_test;
@@ -23,25 +21,25 @@ int plate_count(void) {
   return sizeof(tests) / sizeof(tests[0]);
 }
 
-
-void print_current_test(struct tester *t) {
+void tester_print_test(struct tester *t) {
+  char str[100];
   struct ge_testplates *plate = current_plate(t);
 
-  snprintf(diocane, sizeof(diocane), "%s %s", plate->code, plate->name);
-  Serial.println(diocane);
+  snprintf(str, sizeof(str), "%s %s", plate->code, plate->name);
+  Serial.println(str);
 
   if (t->current_test == 0) {
-    snprintf(diocane, sizeof(diocane), "Config (%d tests)", plate->count - 1);
-    Serial.println(diocane);  
+    snprintf(str, sizeof(str), "Config (%d tests)", plate->count - 1);
+    Serial.println(str);  
   } else {
-    snprintf(diocane, sizeof(diocane), "Test: %d of %d", t->current_test, plate->count - 1);
-    Serial.println(diocane);
+    snprintf(str, sizeof(str), "Test: %d of %d", t->current_test, plate->count - 1);
+    Serial.println(str);
   }
 
   Serial.print("@");
 }
 
-void set_pins(struct tester *t) {
+void tester_set_pins(struct tester *t) {
   struct ge_testplates *plate = current_plate(t);
   uint32_t bits = plate->cases[t->current_test];
 
@@ -49,7 +47,6 @@ void set_pins(struct tester *t) {
     uint32_t bit = !((1ull << (pin)) & bits);
     digitalWrite(ARDUINO_PIN_START + pin, bit);
   }
-
 }
 
 void tester_next_test(struct tester *t) {
@@ -82,7 +79,6 @@ long last_test_debounce = 0;
 int last_plate_button = 1;
 long last_plate_debounce = 0;
 
-
 void setup() {
   Serial.begin(9600);
 
@@ -93,26 +89,21 @@ void setup() {
   pinMode(PLATE_BUTTON_PIN, INPUT_PULLUP);
   pinMode(TEST_BUTTON_PIN, INPUT_PULLUP);
 
-  struct tester *t = &tester;
-
-  tester_init(t);
-
-  // Serial.print("\n\n\nGE TESTER \n\n");
-
-  print_current_test(t);
-  set_pins(t);
+  tester_init(&tester);
+  tester_print_test(&tester);
+  tester_set_pins(&tester);
 }
 
 void advance_test_button() {
   tester_next_test(&tester);
-  print_current_test(&tester);
-  set_pins(&tester);
+  tester_print_test(&tester);
+  tester_set_pins(&tester);
 }
 
 void advance_plate_button() {
   tester_next_plate(&tester);
-  print_current_test(&tester);
-  set_pins(&tester);
+  tester_print_test(&tester);
+  tester_set_pins(&tester);
 }
 
 void loop() {
